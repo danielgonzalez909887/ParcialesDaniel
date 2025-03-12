@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="main.java.com.mycompany.ejercicionomina">
+  <ClassDiagramComponents>
+    <Class name="Categoria" package="com.mycompany.ejercicionomina" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="sueldoBase" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="double" name="sueldoBase"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getSueldoBase" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Complemento" package="com.mycompany.ejercicionomina" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="descripcion" type="String" visibility="private"/>
+        <Field name="valor" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="descripcion"/>
+          <Argument type="double" name="valor"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDescripcion" returnType="String" visibility="public"/>
+        <Method name="getValor" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ComplementoPorCargo" package="com.mycompany.ejercicionomina" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="descripcion" type="String" visibility="private"/>
+        <Field name="valor" type="double" visibility="private"/>
+        <Field name="fechaInicio" type="LocalDate" visibility="private"/>
+        <Field name="fechaFin" type="LocalDate" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="descripcion"/>
+          <Argument type="double" name="valor"/>
+          <Argument type="LocalDate" name="fechaInicio"/>
+          <Argument type="LocalDate" name="fechaFin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="estadoComplemento" returnType="boolean" visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+        </Method>
+        <Method name="getValor" returnType="double" visibility="public"/>
+        <Method name="getDescripcion" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Contrato" package="com.mycompany.ejercicionomina" visibility="public" xPosition="238.0" yPosition="500.0">
+      <Fields>
+        <Field name="fechaAlta" type="LocalDate" visibility="private"/>
+        <Field name="fechaBaja" type="LocalDate" visibility="private"/>
+        <Field name="categoria" type="Categoria" visibility="private"/>
+        <Field name="puestoDestino" type="String" visibility="private"/>
+        <Field name="complementos" type="List&lt;Complemento&gt;" visibility="private"/>
+        <Field name="complementosPorCargo" type="List&lt;ComplementoPorCargo&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="LocalDate" name="fechaAlta"/>
+          <Argument type="LocalDate" name="fechaBaja"/>
+          <Argument type="Categoria" name="categoria"/>
+          <Argument type="String" name="puestoDestino"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getSueldoBase" returnType="double" visibility="public"/>
+        <Method name="addComplemento" returnType="void" visibility="public">
+          <Argument type="Complemento" name="complemento"/>
+        </Method>
+        <Method name="addComplementoPorCargo" returnType="void" visibility="public">
+          <Argument type="String" name="descripcion"/>
+          <Argument type="double" name="valor"/>
+          <Argument type="LocalDate" name="fechaInicio"/>
+          <Argument type="LocalDate" name="fechaFin"/>
+        </Method>
+        <Method name="getTotalComplementosActivos" returnType="double" visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+        </Method>
+        <Method name="getComplementos" returnType="List&lt;Complemento&gt;" visibility="public"/>
+        <Method name="getCategoria" returnType="Categoria" visibility="public"/>
+        <Method name="getPuestoDestino" returnType="String" visibility="public"/>
+        <Method name="getFechaAlta" returnType="LocalDate" visibility="public"/>
+        <Method name="getFechaBaja" returnType="LocalDate" visibility="public"/>
+        <Method name="getAntiguedad" returnType="int" visibility="public"/>
+        <Method name="getTrienios" returnType="int" visibility="public"/>
+        <Method name="getSueldoBaseConTrienios" returnType="double" visibility="public"/>
+        <Method name="setCategoria" returnType="void" visibility="public">
+          <Argument type="Categoria" name="nuevaCategoria"/>
+        </Method>
+        <Method name="agregarComplementoCondicionado" returnType="void" visibility="public">
+          <Argument type="Complemento" name="complemento"/>
+          <Argument type="boolean" name="cumpleCondiciones"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Empleado" package="com.mycompany.ejercicionomina" visibility="public" xPosition="1247.0" yPosition="200.0">
+      <Fields>
+        <Field name="dni" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellidos" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="cuentaCorriente" type="String" visibility="private"/>
+        <Field name="contratos" type="List&lt;Contrato&gt;" visibility="private"/>
+        <Field name="nominas" type="List&lt;Nomina&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="dni"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellidos"/>
+          <Argument type="String" name="telefono"/>
+          <Argument type="String" name="direccion"/>
+          <Argument type="String" name="cuentaCorriente"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="agregarContrato" returnType="void" visibility="public">
+          <Argument type="Contrato" name="contrato"/>
+        </Method>
+        <Method name="generarNomina" returnType="Nomina" visibility="public">
+          <Argument type="Contrato" name="contrato"/>
+          <Argument type="LocalDate" name="fecha"/>
+        </Method>
+        <Method name="getNombreCompleto" returnType="String" visibility="public"/>
+        <Method name="setTelefono" returnType="void" visibility="public">
+          <Argument type="String" name="telefono"/>
+        </Method>
+        <Method name="setDireccion" returnType="void" visibility="public">
+          <Argument type="String" name="direccion"/>
+        </Method>
+        <Method name="setCuentaCorriente" returnType="void" visibility="public">
+          <Argument type="String" name="cuentaCorriente"/>
+        </Method>
+        <Method name="verificarInformacion" returnType="void" visibility="public"/>
+        <Method name="actualizarCategoriaContrato" returnType="void" visibility="public">
+          <Argument type="Contrato" name="contrato"/>
+          <Argument type="Categoria" name="nuevaCategoria"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Nomina" package="com.mycompany.ejercicionomina" visibility="public" xPosition="1264.0" yPosition="801.0">
+      <Fields>
+        <Field name="empleado" type="Empleado" visibility="private"/>
+        <Field name="contrato" type="Contrato" visibility="private"/>
+        <Field name="percepciones" type="double" visibility="private"/>
+        <Field name="deducciones" type="double" visibility="private"/>
+        <Field name="sueldoNeto" type="double" visibility="private"/>
+        <Field name="fecha" type="LocalDate" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Empleado" name="empleado"/>
+          <Argument type="Contrato" name="contrato"/>
+          <Argument type="LocalDate" name="fecha"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calcularIRPF" returnType="double" visibility="private">
+          <Argument type="double" name="sueldoBruto"/>
+        </Method>
+        <Method name="calcularNomina" returnType="void" visibility="private"/>
+        <Method name="getSueldoNeto" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="com.mycompany.ejercicionomina.Contrato" target="com.mycompany.ejercicionomina.Complemento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="empleado" source="com.mycompany.ejercicionomina.Nomina" target="com.mycompany.ejercicionomina.Empleado" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="contratos" source="com.mycompany.ejercicionomina.Empleado" target="com.mycompany.ejercicionomina.Contrato" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Contrato&gt;"/>
+    <UseRelation source="com.mycompany.ejercicionomina.Empleado" target="com.mycompany.ejercicionomina.Contrato" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.mycompany.ejercicionomina.Empleado" target="com.mycompany.ejercicionomina.Nomina" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="com.mycompany.ejercicionomina.Contrato" target="com.mycompany.ejercicionomina.Categoria" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="categoria" source="com.mycompany.ejercicionomina.Contrato" target="com.mycompany.ejercicionomina.Categoria" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="complementosPorCargo" source="com.mycompany.ejercicionomina.Contrato" target="com.mycompany.ejercicionomina.ComplementoPorCargo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;ComplementoPorCargo&gt;"/>
+    <HasRelation name="nominas" source="com.mycompany.ejercicionomina.Empleado" target="com.mycompany.ejercicionomina.Nomina" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Nomina&gt;"/>
+    <HasRelation name="complementos" source="com.mycompany.ejercicionomina.Contrato" target="com.mycompany.ejercicionomina.Complemento" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Complemento&gt;"/>
+    <HasRelation name="contrato" source="com.mycompany.ejercicionomina.Nomina" target="com.mycompany.ejercicionomina.Contrato" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
